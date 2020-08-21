@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">ChuckJoke</string>
+    <string name="reload_btn">Reload</string>
+    <string name="edit_text_count">Count</string>
+
+</resources>
