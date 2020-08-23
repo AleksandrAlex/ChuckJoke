@@ -7,11 +7,11 @@
     <fragment
         android:id="@+id/jokeFragment"
         android:name="com.suslovalex.chuckjoke.view.JokeFragment"
-        android:label="fragment_joke"
+        android:label="Jokes"
         tools:layout="@layout/fragment_joke" />
     <fragment
         android:id="@+id/infoFragment"
         android:name="com.suslovalex.chuckjoke.view.InfoFragment"
-        android:label="fragment_info"
+        android:label="Api info"
         tools:layout="@layout/fragment_info" />
 </navigation>

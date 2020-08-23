@@ -11,18 +11,19 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:padding="8dp"
         tools:context=".view.JokeFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
-            android:layout_width="0dp"
-            android:layout_height="400dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/editText"
             tools:listitem="@layout/item_joke" />
 
         <EditText
@@ -32,10 +33,12 @@
             android:ems="10"
             android:hint="@string/edit_text_count"
             android:inputType="textPersonName"
+            android:digits="0123456789"
             android:text="@{viewModel.amountOfJokes}"
             android:textColor="@color/colorPrimaryDark"
             app:getAmountJoke="@{viewModel.editTextWatcher}"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/reloadBtn"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
@@ -43,13 +46,16 @@
             android:id="@+id/reloadBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="60dp"
             android:background="@color/colorPrimary"
             android:onClick="@{() -> viewModel.reloadBtnClicked()}"
             android:text="@string/reload_btn"
             android:textColor="@color/textColor"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editText" />
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

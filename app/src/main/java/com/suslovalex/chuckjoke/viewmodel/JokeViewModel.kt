@@ -13,6 +13,8 @@ import retrofit2.Response
 
 class JokeViewModel(private val repository: Repository): ViewModel() {
 
+    private val getNullString = "0"
+
     private val _response: MutableLiveData<Response<Post>> = MutableLiveData()
     val response: LiveData<Response<Post>>
     get() = _response
@@ -21,9 +23,14 @@ class JokeViewModel(private val repository: Repository): ViewModel() {
     val amountOfJokes: LiveData<String>
     get() = _amountOfJokes
 
-    fun getJoke(number: String){
+    fun getJoke(number: String) {
+
         viewModelScope.launch {
-           _response.value = repository.getJoke(number)
+            if (number.isEmpty()) {
+                _response.value = repository.getJoke(getNullString)
+            } else {
+                _response.value = repository.getJoke(number)
+            }
         }
     }
 
